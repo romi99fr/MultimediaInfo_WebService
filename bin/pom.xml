@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>multimedia-info</artifactId>
+	<artifactId>MultimediaInfo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>multimedia-info</name>
-	<description>Project for UdL Distributed Computing subject</description>
+	<name>MultimediaInfo</name>
+	<description>REST project for the Distributed Computing subject</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -20,11 +20,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -35,11 +30,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.13.0</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
@@ -50,7 +44,6 @@
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -59,4 +52,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
