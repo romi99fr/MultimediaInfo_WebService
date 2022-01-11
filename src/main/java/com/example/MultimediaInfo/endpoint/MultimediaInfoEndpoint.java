@@ -165,6 +165,37 @@ public class MultimediaInfoEndpoint {
         return new ResponseEntity<>("Keyword added", HttpStatus.CREATED);
     }
 
+    //DELETE ALL FILES
+    @DeleteMapping("/files")
+    public ResponseEntity<String> deleteAllFiles() {
+        multimediaInfoService.deleteAllFiles();
+        return new ResponseEntity<>("All files deleted", HttpStatus.OK);
+    }
+
+    //DELETE SPECIFIC FILE
+    @DeleteMapping("/files/{hash}")
+    public ResponseEntity<String> deleteFile(@PathVariable("hash") String hash) {
+        multimediaInfoService.deleteFileByHash(hash);
+        return new ResponseEntity<>("File deleted", HttpStatus.OK);
+    }
+
+    //DELETE CONTENT FROM FILE BY HASH AND TYPE
+    @DeleteMapping("/files/{hash}/{type}")
+    public ResponseEntity<String> deleteFileContentByType(@PathVariable("hash") String hash, @PathVariable("type") String type) {
+        switch(type) {
+            case "titles":
+                multimediaInfoService.deleteTitlesByHash(hash);
+                break;
+            case "descriptions":
+                multimediaInfoService.deleteDescriptionsByHash(hash);
+                break;
+            case "keywords":
+                multimediaInfoService.deleteKeywordsByHash(hash);
+                break;
+        }
+        return new ResponseEntity<>("Attribte deleted", HttpStatus.OK);
+    }
+
     //SEARCH BY CONTENT
     @GetMapping("/files/search")
     public ResponseEntity<String> searchByAnytype(@RequestBody String anytype) {
